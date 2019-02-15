@@ -1,0 +1,18 @@
+This project will be an itinerary builder/manager
+
+The main goal is to easily be able to build/save POIs and map between them
+
+Users should also be able to save multiple itineraries and modify them
+
+I would like to utilize Google Maps API for distance/time to travel calculations
+
+General things that need to be built:
+
+- Itinerary
+
+- Day
+
+- Point
+
+- Route Info
+
