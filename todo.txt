@@ -16,3 +16,49 @@ General things that need to be built:
 
 - Route Info
 
+
+
+Home Page: 
+
+Select an Itinerary
+Create a new Itinerary
+
+Select start Date
+
+Select end Date
+
+
+View Itinerary:
+
+Dates.
+
+View Date: 
+
+Points and Routes
+
+Point View
+
+Route View?
+
+Itineraries will have many Days, Days will have many Points, two Points will share a Route
+
+Itinerary: 
+    - name
+    - description
+    - Days = []
+
+Day:
+     - description
+     - Points = []
+     - Routes = []
+
+Point:
+    - name
+    - type
+    - description
+    - info
+
+Route:
+    - distance
+    - time
+    - method
