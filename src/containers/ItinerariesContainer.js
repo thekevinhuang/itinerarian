@@ -3,6 +3,7 @@ import Itineraries from '../components/itineraries/Itineraries'
 import ItineraryNew from '../components/itineraries/ItineraryNew'
 import {Route} from 'react-router-dom'
 import ItineraryShow from '../components/itineraries/ItineraryShow';
+import {connect} from 'react-redux'
 
 let itineraries = [
     {
@@ -33,4 +34,14 @@ class ItinerariesContainer extends Component {
     }
 }
 
-export default ItinerariesContainer
+const mapStateToProps = state => {
+    return {
+        itineraries : state.itineraries
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ItinerariesContainer)

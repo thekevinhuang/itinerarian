@@ -19,6 +19,7 @@ export default class ItineraryNew extends Component {
 
     itineraryNewHandle = (event) => {
         event.preventDefault()
+        
         //prop callback dispatch
     }
 
@@ -31,6 +32,12 @@ export default class ItineraryNew extends Component {
                     <br/>
                     <label>Description</label>
                     <input type="text" name="description" onChange={this.itineraryChangeHandle} value={this.state.description}/>
+                    <br/>
+                    <label>Start Date</label>
+                    <input type="date" name="startDate" onChange={this.itineraryChangeHandle} value={this.state.startDate}/>
+                    <br/>
+                    <label>End Date</label>
+                    <input type="date" name="endDate" onChange={this.itineraryChangeHandle} value={this.state.endDate}/>
                     <br/>
                     <br/>
                     <input type="submit" value="Add new Itinerary"/>

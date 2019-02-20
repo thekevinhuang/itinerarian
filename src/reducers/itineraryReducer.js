@@ -6,6 +6,8 @@ const initialState= {
 
 function itineraryReducer (state = initialState, action) {
     switch (action.type) {
+        case "ADD_ITINERARY":
+            return state
         default:
             return state
     }
