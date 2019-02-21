@@ -8,7 +8,6 @@ const initialState = {
     endDate: ''
 }
 
-
 export default class ItineraryNew extends Component {
     constructor () {
         super()
@@ -23,25 +22,28 @@ export default class ItineraryNew extends Component {
 
     itineraryNewHandle = (event) => {
         event.preventDefault()
+        const id = uuid.v4()
         const itinerary = {
             name: this.state.name,
             description: this.state.description,
-            id: uuid()
+            id: id
         }
-        this.dateFiller(this.state.startDate, this.state.endDate,itinerary.id) 
         this.props.addItinerary(itinerary)
+        
+        this.dateFiller(this.state.startDate, this.state.endDate,itinerary.id) 
         this.setState(initialState)
         //prop callback dispatch
     }
 
     dateFiller = (startDate, endDate, id) => {
-        let currentDate = startDate
-        while(currentDate<=endDate) {
-            let tempCurrentDate = new Date (currentDate)
-            let newDate = tempCurrentDate
+        let currentDate = new Date(startDate)
+        let newEndDate = new Date(endDate)
+        while(currentDate<=newEndDate) {
+
+            let newDate = new Date(currentDate)
             this.props.addDate({date: newDate, itineraryId : id})
             
-            currentDate = tempCurrentDate.setDate(tempCurrentDate.getDate()+1)
+            currentDate = newDate.setDate(newDate.getDate()+1)
         }
     }
 
