@@ -7,13 +7,18 @@ import {connect} from 'react-redux'
 
 
 class ItinerariesContainer extends Component {
+
+    itineraryFind = (id) => {
+        return this.props.itineraries.find(itinerary => itinerary.id===id)
+    }
+
     render () {
         
         return (
             <div>
                 <h1>Itineraries</h1>
                 <Route exact path={`${this.props.match.url}`} render={(props)=> (<div><ItineraryNew addItinerary={this.props.addItinerary} addDate={this.props.addDate}/><Itineraries itineraries={this.props.itineraries} {...props}/></div>)}/>
-                <Route path={`${this.props.match.url}/:itineraryId`} component={ItineraryShow}/>
+                <Route path={`${this.props.match.url}/:itineraryId`} render={(props) => (<div><ItineraryShow itineraries={this.props.itineraries} {...props}/></div>)}/>
                 
             </div>
         )
