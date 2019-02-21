@@ -62,3 +62,7 @@ Route:
     - distance
     - time
     - method
+
+
+currently hooking up itineraries to the store... have to pass the dispatch function from the container to the component.
+Have to finish building out the store.

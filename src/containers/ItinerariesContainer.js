@@ -5,20 +5,6 @@ import {Route} from 'react-router-dom'
 import ItineraryShow from '../components/itineraries/ItineraryShow';
 import {connect} from 'react-redux'
 
-let itineraries = [
-    {
-        id: '293',
-        name: 'hello',
-        description: 'hola'
-    },
-    {
-        id: '2019',
-        name: 'wow',
-        description: 'wee'
-    }
-]
-
-
 
 class ItinerariesContainer extends Component {
     render () {
@@ -26,7 +12,7 @@ class ItinerariesContainer extends Component {
         return (
             <div>
                 <h1>Itineraries</h1>
-                <Route exact path={`${this.props.match.url}`} render={(props)=> (<div><ItineraryNew/><Itineraries itineraries={itineraries} {...props}/></div>)}/>
+                <Route exact path={`${this.props.match.url}`} render={(props)=> (<div><ItineraryNew addItinerary={this.props.addItinerary} addDate={this.props.addDate}/><Itineraries itineraries={this.props.itineraries} {...props}/></div>)}/>
                 <Route path={`${this.props.match.url}/:itineraryId`} component={ItineraryShow}/>
                 
             </div>
@@ -41,7 +27,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-
+    return {
+        addItinerary : (itinerary) => dispatch({type: "ADD_ITINERARY", itinerary : itinerary}),
+        addDate : (date) => dispatch({type: "ADD_DATE", date: date})
+    }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(ItinerariesContainer)

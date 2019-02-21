@@ -1,14 +1,18 @@
 import React, {Component} from 'react'
+import uuid from 'uuid'
+
+const initialState = {
+    name: '',
+    description: '',
+    startDate: '',
+    endDate: ''
+}
+
 
 export default class ItineraryNew extends Component {
     constructor () {
         super()
-        this.state={
-            name: '',
-            description: '',
-            startDate: '',
-            endDate: ''
-        }
+        this.state=initialState
     }
 
     itineraryChangeHandle = (event) => {
@@ -19,8 +23,26 @@ export default class ItineraryNew extends Component {
 
     itineraryNewHandle = (event) => {
         event.preventDefault()
-        
+        const itinerary = {
+            name: this.state.name,
+            description: this.state.description,
+            id: uuid()
+        }
+        this.dateFiller(this.state.startDate, this.state.endDate,itinerary.id) 
+        this.props.addItinerary(itinerary)
+        this.setState(initialState)
         //prop callback dispatch
+    }
+
+    dateFiller = (startDate, endDate, id) => {
+        let currentDate = startDate
+        while(currentDate<=endDate) {
+            let tempCurrentDate = new Date (currentDate)
+            let newDate = tempCurrentDate
+            this.props.addDate({date: newDate, itineraryId : id})
+            
+            currentDate = tempCurrentDate.setDate(tempCurrentDate.getDate()+1)
+        }
     }
 
     render() {

@@ -1,13 +1,12 @@
-const initialState= {
-    name: '',
-    description: '',
-    days: []
-}
+import uuid from 'uuid'
 
-function itineraryReducer (state = initialState, action) {
+function itineraryReducer (state = [], action) {
     switch (action.type) {
         case "ADD_ITINERARY":
-            return state
+            const id = uuid();
+            const itinerary = action.itinerary
+            itinerary.id = id
+            return [...state, itinerary]
         default:
             return state
     }
