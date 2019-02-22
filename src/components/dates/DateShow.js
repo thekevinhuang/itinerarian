@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PointsContainer from '../../containers/PointsContainer'
 
 const dateDisplay = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}
 
@@ -10,7 +11,8 @@ export default class DateShow extends Component {
 
         return (
             <div>
-                <p>{date.date.toLocaleDateString("en-US", dateDisplay)}</p>
+                <h2>{date.date.toLocaleDateString("en-US", dateDisplay)}</h2>
+                <PointsContainer date={date}/>
             </div>
         )
     }

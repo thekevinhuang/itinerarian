@@ -4,6 +4,7 @@ import './App.css';
 
 import ItinerariesContainer from './containers/ItinerariesContainer'
 import DatesContainer from './containers/DatesContainer'
+import PointsContainer from './containers/PointsContainer'
 
 
 const link={
@@ -47,7 +48,7 @@ class App extends Component {
           <Route exact path="/" component={Home}/>
           <Route path="/itineraries" render={(routerProps)=> <ItinerariesContainer {...routerProps}/>}/>
           <Route path="/dates" render={(routerProps)=>(<DatesContainer {...routerProps}/>)}/>
-
+          <Route path="/points" render={(routerProps)=>(<PointsContainer {...routerProps}/>)}/>
         </React.Fragment>
       </Router>  
     );
