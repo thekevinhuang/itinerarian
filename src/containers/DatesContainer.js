@@ -9,7 +9,7 @@ class DatesContainer extends Component {
         return(
             <div>
                 <Route path="/itineraries" render={(routerProps) => <Dates itinerary={this.props.itinerary} dates={this.props.dates} {...routerProps}/>}/>
-                <Route path="/dates/:dateId" render={(routerProps)=><DateShow {...routerProps}/>}/>
+                <Route path="/dates/:dateId" render={(routerProps)=><DateShow dates={this.props.dates} {...routerProps}/>}/>
             </div>
         )
     }
