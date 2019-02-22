@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
 import './App.css';
 
 import ItinerariesContainer from './containers/ItinerariesContainer'
-//import ItineraryShow from './components/itineraries/ItineraryShow'
+import DatesContainer from './containers/DatesContainer'
 
 
 const link={
@@ -46,7 +46,8 @@ class App extends Component {
           <NavBar />
           <Route exact path="/" component={Home}/>
           <Route path="/itineraries" render={(routerProps)=> <ItinerariesContainer {...routerProps}/>}/>
-          
+          <Route path="/dates" render={(routerProps)=>(<DatesContainer {...routerProps}/>)}/>
+
         </React.Fragment>
       </Router>  
     );
