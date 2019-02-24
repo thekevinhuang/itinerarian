@@ -12,7 +12,7 @@ class PointsContainer extends Component {
             <div>
                 <Route path="/dates" render={(props)=> <div><PointNew date={this.props.date} addPoint={this.props.addPoint}/> <Points date={this.props.date} points={this.props.points} {...props}/></div>}/>
                 
-                <Route path="/points/:id" render={(props) => <PointShow point={points} {...props}/>}/>
+                <Route path="/points/:id" render={(props) => <PointShow points={this.props.points} {...props}/>}/>
                 
             </div>
         )
