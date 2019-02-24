@@ -64,5 +64,4 @@ Route:
     - method
 
 
-currently hooking up itineraries to the store... have to pass the dispatch function from the container to the component.
-Have to finish building out the store.
+should probably isolate the points or dates by their parent ID outside of the component to reduce logic in the show component

@@ -21,10 +21,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DatesContainer)
+export default connect(mapStateToProps)(DatesContainer)

@@ -2,13 +2,16 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import Points from '../components/points/Points'
 import PointNew from '../components/points/PointNew'
+import PointShow from '../components/points/PointShow'
+import {Route} from 'react-router-dom'
 
 class PointsContainer extends Component {
     render() {
         return (
             <div>
-                <PointNew date={this.props.date} addPoint={this.props.addPoint}/>
-                <Points date={this.props.date} points={this.props.points}/>
+                <Route path="/dates" render={(props)=> <div><PointNew date={this.props.date} addPoint={this.props.addPoint}/> <Points date={this.props.date} points={this.props.points} {...props}/></div>}/>
+                
+                <Route path="/points/:id" render={() => <PointShow date={this.props.date} points={this.props.points}/>}/>
                 
             </div>
         )
