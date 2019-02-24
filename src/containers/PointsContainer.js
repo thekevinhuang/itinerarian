@@ -7,11 +7,12 @@ import {Route} from 'react-router-dom'
 
 class PointsContainer extends Component {
     render() {
+
         return (
             <div>
                 <Route path="/dates" render={(props)=> <div><PointNew date={this.props.date} addPoint={this.props.addPoint}/> <Points date={this.props.date} points={this.props.points} {...props}/></div>}/>
                 
-                <Route path="/points/:id" render={() => <PointShow date={this.props.date} points={this.props.points}/>}/>
+                <Route path="/points/:id" render={(props) => <PointShow point={points} {...props}/>}/>
                 
             </div>
         )
