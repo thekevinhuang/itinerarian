@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import uuid from 'uuid'
 
 const initialState = {
     name : '',
@@ -11,7 +12,24 @@ export default class PointNew extends Component {
         this.state=initialState
     }
 
-    //create handleChange and handleSubmit
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name] :event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const id = uuid.v4()
+        const point = {
+            name: this.state.name,
+            description: this.state.description,
+            id: id,
+            dateId: this.props.date.id
+        }
+        this.props.addPoint(point)
+        this.setState(initialState)
+    }
 
     render() {
         return (
